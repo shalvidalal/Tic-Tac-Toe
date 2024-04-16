@@ -138,3 +138,12 @@ function minimax(newBoard, player) {
 
 	return moves[bestMove];
 }
+
+document.getElementById("aboutBtn").addEventListener("click", function() {
+  var creatorInfo = document.getElementById("creatorInfo");
+  if (creatorInfo.style.display === "none") {
+    creatorInfo.style.display = "block";
+  } else {
+    creatorInfo.style.display = "none";
+  }
+});
