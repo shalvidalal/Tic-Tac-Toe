@@ -147,3 +147,16 @@ document.getElementById("aboutBtn").addEventListener("click", function() {
     creatorInfo.style.display = "none";
   }
 });
+
+function toggleCreatorInfo() {
+    var creatorInfo = document.getElementById("creatorInfo");
+    creatorInfo.classList.toggle("show");
+  
+    var shalviPhoto = document.querySelector(".about-creator img");
+    if (shalviPhoto.style.display === "none") {
+      shalviPhoto.style.display = "block";
+    } else {
+      shalviPhoto.style.display = "none";
+    }
+  }
+  
