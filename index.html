@@ -34,6 +34,8 @@
       height: 100px;
       border: 2px solid #2E8B57; /* Green border */
       font-size: 24px;
+      text-align: center; /* Center the content horizontally */
+      vertical-align: middle; /* Center the content vertically */
       cursor: pointer;
     }
     .board td:hover {
@@ -49,6 +51,7 @@
     }
     button {
       margin-top: 20px;
+      margin-left: 10px; /* Added margin to separate from the Replay button */
       padding: 10px 20px;
       font-size: 16px;
       background-color: #4CAF50;
@@ -59,6 +62,14 @@
     }
     button:hover {
       background-color: #45a049;
+    }
+    .about-creator {
+      display: none; /* Initially hidden */
+      background-color: #FFFFFF; /* White background color */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+      margin-top: 20px; /* Adjusted margin to separate from the button */
     }
   </style>
 </head>
@@ -88,6 +99,16 @@
       <div class="text"></div>
     </div>
     <button onClick="startGame()">Replay</button>
+    <button id="aboutBtn" onclick="toggleCreatorInfo()">About the Creator</button>
+    <div class="about-creator" id="creatorInfo">
+      <p><strong>Creator:</strong><br>This game was created by Shalvi Dalal.</p>
+      <p><strong>Message from Creator:</strong><br>
+      Hi! My name is Shalvi and I am a junior studying Computer Science at LSU. I am currently studying Artificial Intelligence, Object Oriented Programming, Operating Systems, and Computer Organization. I just had some extra time on my hands so I decided to make this game! Please let me know if you have any feedback or suggestions for improvement!</p>
+      <p><strong>Contact the Creator:</strong><br>
+      Shalvi Dalal<br>
+      Email: <a href="mailto:sdalal3@lsu.edu">sdalal3@lsu.edu</a></p>
+      <p>Hope you enjoyed our game!</p>
+    </div>
   </div>
 
   <script src="script.js"></script>
