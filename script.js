@@ -23,14 +23,26 @@ function startGame() {
 		cells[i].style.removeProperty('background-color');
 		cells[i].addEventListener('click', turnClick, false);
 	}
+	
+	var firstPlayer = Math.random() < 0.5 ? huPlayer : aiPlayer;
+	document.getElementById('error-message').innerText = "First move by: " + (firstPlayer === huPlayer ? "You" : "AI");
+	if (firstPlayer === aiPlayer) {
+		turn(bestSpot(), aiPlayer);
+	}
 }
 
 function turnClick(square) {
-	if (typeof origBoard[square.target.id] == 'number') {
-		turn(square.target.id, huPlayer)
-		if (!checkWin(origBoard, huPlayer) && !checkTie()) turn(bestSpot(), aiPlayer);
-	}
+    if (typeof origBoard[square.target.id] == 'number') {
+        turn(square.target.id, huPlayer);
+        if (!checkWin(origBoard, huPlayer) && !checkTie()) {
+            setTimeout(function() {
+                turn(bestSpot(), aiPlayer);
+                checkTie(); 
+            }, 500); 
+        }
+    }
 }
+
 
 function turn(squareId, player) {
 	origBoard[squareId] = player;
@@ -39,7 +51,7 @@ function turn(squareId, player) {
 	if (gameWon) gameOver(gameWon)
 }
 
-function checkWin(board, player) {
+function checkWin(board, player) { 
 	let plays = board.reduce((a, e, i) =>
 		(e === player) ? a.concat(i) : a, []);
 	let gameWon = null;
@@ -159,4 +171,3 @@ function toggleCreatorInfo() {
       shalviPhoto.style.display = "none";
     }
   }
-  
